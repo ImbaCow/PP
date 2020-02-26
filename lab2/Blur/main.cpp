@@ -58,7 +58,7 @@ void BlurImageAsync(string input, string output, uint32_t coreCount, uint32_t th
 	vector<unique_ptr<BpmBlurCollumnsCommand>> commandPtrArr = GetCommands(image, resultImage, threadCount);
 
 	vector<HANDLE> handles(commandPtrArr.size());
-	uint64_t affinityMask = (1ull << (coreCount + 1ull)) - 1ull;
+	uint64_t affinityMask = (1ull << coreCount) - 1ull;
 	for (size_t i = 0; i < commandPtrArr.size(); ++i)
 	{
 		handles[i] = CreateThread(NULL, 0, &ThreadProc, &commandPtrArr[i], CREATE_SUSPENDED, NULL);

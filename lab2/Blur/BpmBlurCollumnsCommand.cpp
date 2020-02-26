@@ -22,7 +22,7 @@ void BpmBlurCollumnsCommand::Execute()
 	}
 }
 
-const uint32_t PIXEL_SEARCH_RADIUS = 20;
+const uint32_t PIXEL_SEARCH_RADIUS = 50;
 
 void BpmBlurCollumnsCommand::BlurPixel(uint32_t widthIndex, uint32_t heightIndex) const
 {
